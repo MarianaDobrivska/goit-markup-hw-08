@@ -1,0 +1,229 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal {
+  width: 528px;
+  min-height: 581px;
+  background-color: var(--primary-white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  padding: 40px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.closing-button {
+  @include flexBase;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  fill: black;
+  background-color: transparent;
+  top: 8px;
+  right: 8px;
+  position: absolute;
+  cursor: pointer;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    fill: var(--primary-hover-color);
+  }
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+  color: var(--primary-text-color);
+}
+
+.modal-field {
+  margin-bottom: 10px;
+}
+
+.modal-input {
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  padding-left: 42px;
+  padding-right: 12px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus {
+    outline: transparent;
+    border-color: var(--primary-hover-color);
+  }
+}
+
+.modal-label {
+  display: block;
+  color: var(--secondary-text-color);
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.modal-icon {
+  position: absolute;
+  fill: var(--primary-text-color);
+  left: 12px;
+  transform: translateY(50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .modal-input:focus + & {
+    fill: var(--primary-hover-color);
+  }
+}
+
+// .modal-input:focus + .modal-icon {
+//   fill: var(--primary-hover-color);
+// }
+
+.modal-text {
+  width: 100%;
+  height: 120px;
+  resize: none;
+  padding: 12px 16px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::placeholder {
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+
+    color: rgba(117, 117, 117, 0.5);
+  }
+
+  &:focus {
+    outline: transparent;
+    border-color: var(--primary-hover-color);
+  }
+}
+
+.form-privacy {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: var(--secondary-text-color);
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+
+.privacy-text a {
+  color: var(--primary-hover-color);
+  text-decoration-line: underline;
+}
+
+/* .privacy-text {
+  color: var(--secondary-text-color);
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+} */
+
+.privacy-icons {
+  display: block;
+  position: relative;
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  margin-left: 12px;
+}
+
+.icon-border {
+  fill: var(--logo-color-black);
+  background-color: transparent;
+  position: absolute;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-checkmark {
+  position: absolute;
+  opacity: 0;
+  background-color: var(--primary-hover-color);
+  @include flexBase;
+  border-radius: 2px;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox:checked ~ .privacy-icons .icon-checkmark {
+  opacity: 1;
+}
+
+.checkbox:checked ~ .privacy-icons .icon-border {
+  opacity: 0;
+}
+
+.button-send {
+  padding: 10px 52px;
+  width: 200px;
+  height: 50px;
+  background-color: var(--primary-hover-color);
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+
+  color: var(--primary-white-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  @include flexBase;
+  letter-spacing: 0.06em;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: auto;
+  margin-left: auto;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    background-color: #188ce8;
+  }
+}
