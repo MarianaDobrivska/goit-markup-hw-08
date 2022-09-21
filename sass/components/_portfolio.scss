@@ -1,21 +1,43 @@
 .portfolio {
   background-color: var(--secondary-background-color);
-  width: 1200px;
+  width: 100%;
   padding-left: 15px;
   padding-right: 15px;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+  }
 }
 
 /* ------------ Portfolio BUTTONS -------- */
 
 .portfolio-filters {
   display: flex;
-  gap: 8px;
-  justify-content: center;
+  // gap: 8px;
+  row-gap: 15px;
+  justify-content: flex-start;
+  // max-width: 480px;
+
+  // justify-content: center;
   margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.filter-button-add {
+  margin-right: auto;
 }
 
 .filter {
   display: block;
+  margin-right: 8px;
 }
 
 .filter-button {
@@ -26,7 +48,7 @@
   font-size: 16px;
   line-height: 1.62;
   text-align: center;
-  border: none;
+  border: transparent;
 
   cursor: pointer;
 
@@ -48,6 +70,8 @@
   &.current {
     background-color: var(--primary-hover-color);
     color: var(--primary-white-color);
+    // new
+    padding: 6px 25px;
   }
 }
 
@@ -57,7 +81,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  justify-content: center;
+
+  // justify-content: center;
 }
 
 .portfolio-link {
@@ -74,8 +99,17 @@
 
 .portfolio-example {
   background-color: var(--primary-white-color);
-  // flex-basis: ((100% - 90) / 3);
+  width: 100%;
+
   display: inline-flex;
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% - 30px) / 2);
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-basis: calc((100% - 60px) / 3);
+  }
 }
 
 /* -- hidden text ---- */
