@@ -7,6 +7,10 @@
 }
 
 .footer-wrap-add {
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    align-items: baseline;
+  }
+
   @media screen and (min-width: 768px) {
     margin-bottom: 60px;
     display: flex;
@@ -107,7 +111,7 @@ address {
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     margin-left: 165px;
     padding-right: 74px;
-    padding-top: 5px;
+    // padding-top: 5px;
   }
 
   @media screen and (min-width: 1200px) {
@@ -159,6 +163,7 @@ address {
 
   @media screen and (min-width: 1200px) {
     padding-top: 12px;
+    text-align: left;
   }
 
   & p {

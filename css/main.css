@@ -1253,6 +1253,13 @@ header {
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .footer-wrap-add {
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+}
 @media screen and (min-width: 768px) {
   .footer-wrap-add {
     margin-bottom: 60px;
@@ -1361,7 +1368,6 @@ header {
   .footer-social-links {
     margin-left: 165px;
     padding-right: 74px;
-    padding-top: 5px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -1416,6 +1422,7 @@ header {
 @media screen and (min-width: 1200px) {
   .subscription {
     padding-top: 12px;
+    text-align: left;
   }
 }
 .subscription p {
